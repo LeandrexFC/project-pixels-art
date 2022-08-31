@@ -1,0 +1,15 @@
+#title {
+    text-align: center;
+}
+
+#color-palette {
+    text-align: center;
+}
+
+.color {
+    height: 80px;
+    width: 80px;
+    padding: 10px;
+    display: inline-block;
+    border: solid black 1px;
+}
