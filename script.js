@@ -1,21 +1,26 @@
-window.onload = function () {
-    let change = document.querySelector(".color");
-    change.style.backgroundColor = "black"
 
-    let change2 = document.querySelector(".color").nextElementSibling;
+let change = document.querySelector(".color");
+change.style.backgroundColor = "black"
 
-    let change3 = change2.nextElementSibling;
+let change2 = document.querySelector(".color").nextElementSibling;
 
-    let change4 = change3.nextElementSibling;
+let change3 = change2.nextElementSibling;
 
-    let btn = document.querySelector("#button-random-color")
-    btn.addEventListener('click', function () {
-        let r = parseInt(Math.random() * 255);
-        let g = parseInt(Math.random() * 255);
-        let b = parseInt(Math.random() * 255);
-        change2.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
-        change3.style.backgroundColor = 'rgb(' + b + ',' + r + ',' + g + ')';
-        change4.style.backgroundColor = 'rgb(' + g + ',' + b + ',' + r + ')';
+let change4 = change3.nextElementSibling;
 
-    })
+let btn = document.querySelector("#button-random-color")
+btn.addEventListener('click', changeColor)
+
+function changeColor() {
+    let r = parseInt(Math.random() * 255);
+    let g = parseInt(Math.random() * 255);
+    let b = parseInt(Math.random() * 255);
+    
+    change2.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
+    change3.style.backgroundColor = 'rgb(' + r + ',' + b + ',' + g + ')';
+    change4.style.backgroundColor = 'rgb(' + g + ',' + b + ',' + r  + ')';
+
+    localStorage.setItem('colorPalette', 'rgb(' + r + ',' + g + ',' + b + ')' + 'rgb(' + r + ',' + b + ',' + g + ')' + 'rgb(' + g + ',' + b + ',' + r  + ')')
 }
+
+changeColor()
