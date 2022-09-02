@@ -1,3 +1,7 @@
+window.onload = function() {
+    localStorage.getItem('colorPalette')
+    change.classList.add('selected')
+}
 
 let change = document.querySelector(".color");
 change.style.backgroundColor = "black"
@@ -28,6 +32,3 @@ function changeColor() {
 
 changeColor();
 
-window.onload = function() {
-    localStorage.getItem('colorPalette')
-}
