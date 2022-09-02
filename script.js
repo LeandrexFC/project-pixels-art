@@ -3,6 +3,12 @@ window.onload = function() {
     change.classList.add('selected')
 }
 
+let allColor = document.getElementsByClassName("color")
+
+let pixel = document.querySelectorAll('.pixel')
+
+let selectedColor = "black"
+
 let change = document.querySelector(".color");
 change.style.backgroundColor = "black"
 
@@ -32,3 +38,23 @@ function changeColor() {
 
 changeColor();
 
+function selectColor(event) {
+    for(index of allColor) {
+        index.classList.remove("selected")
+    }
+    event.target.classList.add("selected")
+    selectedColor = event.target.style.backgroundColor
+} 
+    allColor[0].addEventListener('click', selectColor)
+    allColor[1].addEventListener('click', selectColor)
+    allColor[2].addEventListener('click', selectColor)
+    allColor[3].addEventListener('click', selectColor)
+
+function fillColor(event) {
+    event.target.style.backgroundColor = selectedColor
+
+}
+
+for(index of pixel) {
+    index.addEventListener('click', fillColor)
+}
