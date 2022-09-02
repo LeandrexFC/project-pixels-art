@@ -15,12 +15,19 @@ function changeColor() {
     let r = parseInt(Math.random() * 255);
     let g = parseInt(Math.random() * 255);
     let b = parseInt(Math.random() * 255);
-    
+
     change2.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
     change3.style.backgroundColor = 'rgb(' + r + ',' + b + ',' + g + ')';
     change4.style.backgroundColor = 'rgb(' + g + ',' + b + ',' + r  + ')';
 
-    localStorage.setItem('colorPalette', 'rgb(' + r + ',' + g + ',' + b + ')' + 'rgb(' + r + ',' + b + ',' + g + ')' + 'rgb(' + g + ',' + b + ',' + r  + ')')
+    let teste = document.querySelector(".color").nextElementSibling
+    
+    localStorage.setItem('colorPalette', teste)
+    
 }
 
-changeColor()
+changeColor();
+
+window.onload = function() {
+    localStorage.getItem('colorPalette')
+}
