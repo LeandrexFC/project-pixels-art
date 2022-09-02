@@ -1,4 +1,4 @@
-window.onload = function() {
+window.onload = function () {
     localStorage.getItem('colorPalette')
     change.classList.add('selected')
 }
@@ -6,6 +6,9 @@ window.onload = function() {
 let allColor = document.getElementsByClassName("color")
 
 let pixel = document.querySelectorAll('.pixel')
+
+let btn2 = document.querySelector("#clear-board");
+btn2.addEventListener('click', removeColor)
 
 let selectedColor = "black"
 
@@ -28,33 +31,41 @@ function changeColor() {
 
     change2.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
     change3.style.backgroundColor = 'rgb(' + r + ',' + b + ',' + g + ')';
-    change4.style.backgroundColor = 'rgb(' + g + ',' + b + ',' + r  + ')';
+    change4.style.backgroundColor = 'rgb(' + g + ',' + b + ',' + r + ')';
 
     let teste = document.querySelector(".color").nextElementSibling
-    
+
     localStorage.setItem('colorPalette', teste)
-    
+
 }
 
 changeColor();
 
 function selectColor(event) {
-    for(index of allColor) {
+    for (index of allColor) {
         index.classList.remove("selected")
     }
     event.target.classList.add("selected")
     selectedColor = event.target.style.backgroundColor
-} 
-    allColor[0].addEventListener('click', selectColor)
-    allColor[1].addEventListener('click', selectColor)
-    allColor[2].addEventListener('click', selectColor)
-    allColor[3].addEventListener('click', selectColor)
+}
+allColor[0].addEventListener('click', selectColor)
+allColor[1].addEventListener('click', selectColor)
+allColor[2].addEventListener('click', selectColor)
+allColor[3].addEventListener('click', selectColor)
 
 function fillColor(event) {
     event.target.style.backgroundColor = selectedColor
 
 }
 
-for(index of pixel) {
+function removeColor() {
+    for (index of pixel) {
+        index.style.backgroundColor = "white"
+    }
+}
+
+
+for (index of pixel) {
     index.addEventListener('click', fillColor)
 }
+
