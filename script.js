@@ -1,7 +1,5 @@
-window.onload = function () {
-    localStorage.getItem('colorPalette')
-    change.classList.add('selected')
-}
+
+//localStorage.getItem('colorPalette')
 
 let allColor = document.getElementsByClassName("color")
 
@@ -14,17 +12,19 @@ let selectedColor = "black"
 
 let change = document.querySelector(".color");
 change.style.backgroundColor = "black"
+change.classList.add('selected')
 
 let change2 = document.querySelector(".color").nextElementSibling;
+change2.style.backgroundColor = "red"
 
 let change3 = change2.nextElementSibling;
+change3.style.backgroundColor = "blue"
 
 let change4 = change3.nextElementSibling;
+change4.style.backgroundColor = "green"
 
 let btn = document.querySelector("#button-random-color")
-btn.addEventListener('click', changeColor)
-
-function changeColor() {
+btn.addEventListener('click', function () {
     let r = parseInt(Math.random() * 255);
     let g = parseInt(Math.random() * 255);
     let b = parseInt(Math.random() * 255);
@@ -32,14 +32,11 @@ function changeColor() {
     change2.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
     change3.style.backgroundColor = 'rgb(' + r + ',' + b + ',' + g + ')';
     change4.style.backgroundColor = 'rgb(' + g + ',' + b + ',' + r + ')';
+})
 
-    let teste = document.querySelector(".color").nextElementSibling
+//let teste = document.querySelector(".color").nextElementSibling
 
-    localStorage.setItem('colorPalette', teste)
-
-}
-
-changeColor();
+//localStorage.setItem('colorPalette', teste)
 
 function selectColor(event) {
     for (index of allColor) {
@@ -63,7 +60,6 @@ function removeColor() {
         index.style.backgroundColor = "white"
     }
 }
-
 
 for (index of pixel) {
     index.addEventListener('click', fillColor)
