@@ -1,67 +1,58 @@
+const allColor = document.getElementsByClassName('color');
 
-//localStorage.getItem('colorPalette')
+const pixel = document.querySelectorAll('.pixel');
 
-let allColor = document.getElementsByClassName("color")
+let selectedColor = 'black';
 
-let pixel = document.querySelectorAll('.pixel')
+const change = document.querySelector('.color');
+change.style.backgroundColor = 'black';
+change.classList.add('selected');
 
-let btn2 = document.querySelector("#clear-board");
-btn2.addEventListener('click', removeColor)
+const change2 = document.querySelector('.color').nextElementSibling;
+change2.style.backgroundColor = '#7CFC00';
 
-let selectedColor = "black"
+const change3 = change2.nextElementSibling;
+change3.style.backgroundColor = '#F69191';
 
-let change = document.querySelector(".color");
-change.style.backgroundColor = "black"
-change.classList.add('selected')
+const change4 = change3.nextElementSibling;
+change4.style.backgroundColor = 'green';
 
-let change2 = document.querySelector(".color").nextElementSibling;
-change2.style.backgroundColor = "red"
+const btn = document.querySelector('#button-random-color');
+btn.addEventListener('click', () => {
+  const r = parseInt(Math.random() * 255);
+  const g = parseInt(Math.random() * 255);
+  const b = parseInt(Math.random() * 255);
 
-let change3 = change2.nextElementSibling;
-change3.style.backgroundColor = "blue"
-
-let change4 = change3.nextElementSibling;
-change4.style.backgroundColor = "green"
-
-let btn = document.querySelector("#button-random-color")
-btn.addEventListener('click', function () {
-    let r = parseInt(Math.random() * 255);
-    let g = parseInt(Math.random() * 255);
-    let b = parseInt(Math.random() * 255);
-
-    change2.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
-    change3.style.backgroundColor = 'rgb(' + r + ',' + b + ',' + g + ')';
-    change4.style.backgroundColor = 'rgb(' + g + ',' + b + ',' + r + ')';
-})
-
-//let teste = document.querySelector(".color").nextElementSibling
-
-//localStorage.setItem('colorPalette', teste)
+  change2.style.backgroundColor = `rgb(${r},${g},${b})`;
+  change3.style.backgroundColor = `rgb(${r},${b},${g})`;
+  change4.style.backgroundColor = `rgb(${g},${b},${r})`;
+});
 
 function selectColor(event) {
-    for (index of allColor) {
-        index.classList.remove("selected")
-    }
-    event.target.classList.add("selected")
-    selectedColor = event.target.style.backgroundColor
+  for (index of allColor) {
+    index.classList.remove('selected');
+  }
+  event.target.classList.add('selected');
+  selectedColor = event.target.style.backgroundColor;
 }
-allColor[0].addEventListener('click', selectColor)
-allColor[1].addEventListener('click', selectColor)
-allColor[2].addEventListener('click', selectColor)
-allColor[3].addEventListener('click', selectColor)
+allColor[0].addEventListener('click', selectColor);
+allColor[1].addEventListener('click', selectColor);
+allColor[2].addEventListener('click', selectColor);
+allColor[3].addEventListener('click', selectColor);
 
 function fillColor(event) {
-    event.target.style.backgroundColor = selectedColor
-
+  event.target.style.backgroundColor = selectedColor;
 }
 
 function removeColor() {
-    for (index of pixel) {
-        index.style.backgroundColor = "white"
-    }
+  for (index of pixel) {
+    index.style.backgroundColor = 'white';
+  }
 }
+
+const btn2 = document.querySelector('#clear-board');
+btn2.addEventListener('click', removeColor);
 
 for (index of pixel) {
-    index.addEventListener('click', fillColor)
+  index.addEventListener('click', fillColor);
 }
-

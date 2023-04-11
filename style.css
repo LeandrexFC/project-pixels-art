@@ -1,3 +1,8 @@
+body {
+    background-color: #556B2F;
+}
+
+
 #title {
     text-align: center;
 }
@@ -16,10 +21,11 @@
 
 #pixel-board {
     text-align: center;
-    margin-left: 550px;
-    width: 250px;
-    height: 300px;
+    margin-left: 220px;
+    width: 800px;
+    height: 700px;
     margin-top: 30px;
+
 }
 
 
@@ -29,10 +35,17 @@
     height: 40px;
     width: 40px;
     border: solid black 1px;
+    margin: -2px;
+    
 
 }
 
 #clear-board {
-    margin-left: 670px;
+    margin-left: 630px;
     margin-top: 20px;
+    
+}
+
+#button-random-color {
+    margin-left: 230px;
 }
